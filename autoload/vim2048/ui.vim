@@ -1,8 +1,10 @@
 let s:drawer = SpaceVim#api#import('unicode#box')
 let s:number = SpaceVim#api#import('data#number')
 
-function! vim2048#ui#redraw() abort
-    call s:init()
+function! vim2048#ui#redraw(...) abort
+    if a:0 == 1
+        call s:init()
+    endif
     let box = s:drawer.drawing_box(s:data,4,4,4)
     setl modifiable
     call append('$', box)
@@ -19,4 +21,12 @@ function! s:init() abort
         let m = s:number.random(0, 16)
     endwhile
     let s:data[m] = 2
+endfunction
+
+function! vim2048#ui#update(data) abort
+    let s:data = a:data
+endfunction
+
+function! vim2048#ui#get_data() abort
+    return s:data
 endfunction
