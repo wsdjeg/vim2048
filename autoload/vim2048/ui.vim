@@ -8,7 +8,7 @@ function! vim2048#ui#redraw(...) abort
         call vim2048#ui#random_add_two() 
     endif
     let score = s:drawer.drawing_box(s:score, 1, 4, 10)
-    let box = s:drawer.drawing_box(s:data,4,4,4)
+    let box = s:drawer.drawing_box(s:data,4,4,6)
     setl modifiable
     call setline(1, score)
     call setline(5, box)
