@@ -1,5 +1,6 @@
 function! vim2048#start() abort
     tabnew
+    call setline(1,['','','','',''])  
     setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nomodifiable nospell
     call vim2048#ui#redraw(1)
     call s:defmappings()
