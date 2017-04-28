@@ -7,7 +7,7 @@ function! vim2048#ui#redraw(...) abort
     endif
     let box = s:drawer.drawing_box(s:data,4,4,4)
     setl modifiable
-    call append('$', box)
+    call setline(1, box)
     setl nomodifiable
 
 endfunction
@@ -25,6 +25,7 @@ endfunction
 
 function! vim2048#ui#update(data) abort
     let s:data = a:data
+    call vim2048#ui#redraw()
 endfunction
 
 function! vim2048#ui#get_data() abort
