@@ -35,26 +35,26 @@ hi link Number4 ColNumber4
 syn match Number8 '\s\+8\s\+'
 hi link Number8 ColNumber8
 
-syn match Number16 /\<16\>/
+syn match Number16 '\s\+16\s\+'
 hi link Number16 ColNumber16
 
-syn match Number32 /\<32\>/
+syn match Number32 '\s\+32\s\+'
 hi link Number32 ColNumber32
 
-syn match Number64 /\<64\>/
+syn match Number64 '\s\+64\s\+'
 hi link Number64 ColNumber64
 
-syn match Number128 /\<128\>/
+syn match Number128 '\s\+128\s\+'
 hi link Number128 ColNumber128
 
-syn match Number256 /\<256\>/
+syn match Number256 '\s\+256\s\+'
 hi link Number256 ColNumber256
 
-syn match Number512 /\<512\>/
+syn match Number512 '\s\+512\s\+'
 hi link Number512 ColNumber512
 
-syn match Number1024 /\<1024\>/
+syn match Number1024 '\s\+1024\s\+'
 hi link Number1024 ColNumber1024
 
-syn match Number2048 /\<2048\>/
+syn match Number2048 '\s\+2048\s\+'
 hi link Number2048 ColNumber2048

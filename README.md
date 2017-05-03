@@ -17,4 +17,4 @@ call SpaceVim#layers#load('games')
 
 ## screenshot
 
-![2017-04-28_1366x746](https://cloud.githubusercontent.com/assets/13142418/25534346/154d8bc8-2c66-11e7-9b92-5b96233457ac.png)
+![2017-05-04-00 29 59](https://cloud.githubusercontent.com/assets/13142418/25671079/66354112-3061-11e7-9e16-676bf891ee1a.png)
