@@ -13,7 +13,7 @@ this plugin is based of SpaceVim's API, you need to install SpaceVim.
 call SpaceVim#layers#load('games')   
 ```
 
-2. and run the game by <kbd>SPC g 2</kbd>.
+2. and run the game by pressing `<Space> g 2`.
 
 ## screenshot
 
