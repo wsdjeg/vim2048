@@ -1,23 +1,36 @@
 let s:score = 0
-
+let s:undo = []
+let s:undoscore = 0 
 function! vim2048#logic#up() abort
+    let s:undo = vim2048#ui#get_data()
     let data = s:merge_up(s:split_list(vim2048#ui#get_data()))
     call vim2048#ui#update(data, s:score)
+    let s:undoscore = 0 - s:score
     let s:score = 0
 endfunction
+function! vim2048#logic#undo() abort
+    call vim2048#ui#update(s:undo, s:undoscore)
+endfunction
+
 function! vim2048#logic#down() abort
+    let undo = vim2048#ui#get_data()
     let data = s:merge_down(s:split_list(vim2048#ui#get_data()))
     call vim2048#ui#update(data, s:score)
+    let s:undoscore = 0 - s:score
     let s:score = 0
 endfunction
 function! vim2048#logic#right() abort
+    let undo = vim2048#ui#get_data()
     let data = s:merge_right(s:split_list(vim2048#ui#get_data()))
     call vim2048#ui#update(data, s:score)
+    let s:undoscore = 0 - s:score
     let s:score = 0
 endfunction
 function! vim2048#logic#left() abort
+    let undo = vim2048#ui#get_data()
     let data = s:merge_left(s:split_list(vim2048#ui#get_data()))
     call vim2048#ui#update(data, s:score)
+    let s:undoscore = 0 - s:score
     let s:score = 0
 endfunction
 
