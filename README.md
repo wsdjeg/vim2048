@@ -5,7 +5,15 @@
 
 ## Install
 
-this plugin is based of SpaceVim's API, you can load the game layer, and run the game by <kbd>SPC g 2</kbd>.
+this plugin is based of SpaceVim's API, you need to install SpaceVim.
+
+1. load the game layer:
+
+```viml
+call SpaceVim#layers#load('games')   
+```
+
+2. and run the game by <kbd>SPC g 2</kbd>.
 
 ## screenshot
 
