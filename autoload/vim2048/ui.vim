@@ -1,6 +1,8 @@
 let s:drawer = SpaceVim#api#import('unicode#box')
 let s:number = SpaceVim#api#import('data#number')
 
+let s:score = ['score', 0, 'max score', 0]
+
 function! vim2048#ui#redraw(...) abort
     if a:0 == 1
         call s:init()
@@ -18,7 +20,7 @@ endfunction
 
 function! s:init() abort
     let s:data = map(range(16), '""')
-    let s:score = ['score', 0, 'max score', 0]
+    let s:score[1] = 0
     let n = s:number.random(0, 16)
     let s:data[n] = 2
     let m = s:number.random(0, 16)
@@ -28,8 +30,10 @@ function! s:init() abort
     let s:data[m] = 2
 endfunction
 
-function! vim2048#ui#update(data) abort
+function! vim2048#ui#update(data, score) abort
     let s:data = a:data
+    let s:score[1] += a:score
+    let s:score[3] = max([s:score[1], s:score[3]])
     call vim2048#ui#redraw()
 endfunction
 

@@ -1,18 +1,24 @@
+let s:score = 0
+
 function! vim2048#logic#up() abort
     let data = s:merge_up(s:split_list(vim2048#ui#get_data()))
-    call vim2048#ui#update(data)
+    call vim2048#ui#update(data, s:score)
+    let s:score = 0
 endfunction
 function! vim2048#logic#down() abort
     let data = s:merge_down(s:split_list(vim2048#ui#get_data()))
-    call vim2048#ui#update(data)
+    call vim2048#ui#update(data, s:score)
+    let s:score = 0
 endfunction
 function! vim2048#logic#right() abort
     let data = s:merge_right(s:split_list(vim2048#ui#get_data()))
-    call vim2048#ui#update(data)
+    call vim2048#ui#update(data, s:score)
+    let s:score = 0
 endfunction
 function! vim2048#logic#left() abort
     let data = s:merge_left(s:split_list(vim2048#ui#get_data()))
-    call vim2048#ui#update(data)
+    call vim2048#ui#update(data, s:score)
+    let s:score = 0
 endfunction
 
 
@@ -42,14 +48,17 @@ function! s:merge(l) abort
         return [l[0],'','','']
     elseif len(l) == 2
         if l[0] == l[1]
+            let s:score += l[0] * 2
             return [l[0] * 2, '','','']
         else
             return [l[0], l[1],'','']
         endif
     elseif len(l) == 3
         if l[0] == l[1]
+            let s:score += l[0] * 2
             return [l[0] * 2, l[2],'','']
         elseif l[1] == l[2]
+            let s:score += l[1] * 2
             return [l[0], l[1] * 2,'','']
         else
             return [l[0], l[1], l[2],'']
@@ -57,14 +66,18 @@ function! s:merge(l) abort
     else
         if l[0] == l[1]
             if l[2] == l[3]
+            let s:score += l[0] * 2 + l[2] * 2
                 return [l[0] * 2, l[2] * 2,'','']
             else
+            let s:score += l[0] * 2
                 return [l[0] * 2, l[2], l[3],'']
             endif
         elseif l[1] == l[2]
+            let s:score += l[1] * 2
             return [l[0], l[1] * 2, l[3],'']
         else
             if l[2] == l[3]
+            let s:score += l[2] * 2
                 return [l[0], l[1], l[2] * 2,'']
             else
                 return [l[0], l[1], l[2], l[3]]
